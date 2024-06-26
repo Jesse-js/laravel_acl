@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Ability;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class AbilitySeeder extends Seeder
@@ -23,13 +24,11 @@ class AbilitySeeder extends Seeder
 
         Ability::insert($abilities);
 
-        $abilitiy = Ability::find(1);
-        $abilitiy->roles()->sync([1, 2, 3]);
+        $role = Role::find(1);
+        $role->abilities()->sync([1, 2, 3, 4, 5, 6]);
 
-        $abilitiy = Ability::find(2);
-        $abilitiy->roles()->sync([1, 2]);
+        $role = Role::find(2);
+        $role->abilities()->sync([1, 2]);
 
-        $abilitiy = Ability::find(3);
-        $abilitiy->roles()->sync([1, 3]);
     }
 }

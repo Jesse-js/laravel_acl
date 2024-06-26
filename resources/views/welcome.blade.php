@@ -828,10 +828,10 @@
 
 <body class="antialiased">
     <h2>Laravel ACL</h2>
-    @can('create_user')
+    @can('create_users')
         <a href="">Create User</a>
     @endcan
-    @can('create_post')
+    @can('create_posts')
         <a href="">Create Post</a>
     @endcan
     <ul>

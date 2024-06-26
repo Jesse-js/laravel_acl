@@ -39,6 +39,6 @@ Route::get('/', function () {
         //create_post
         // delete_post
     $users = User::all();
-    Auth::loginUsingId(1);
+    Auth::loginUsingId(2);
     return view('welcome', ['users' => $users]);
 });

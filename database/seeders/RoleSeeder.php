@@ -20,9 +20,9 @@ class RoleSeeder extends Seeder
         Role::insert($roles);
 
         $user = User::find(1);
-        $user->role()->attach(1);
+        $user->roles()->attach(1);
 
         $user = User::find(2);
-        $user->role()->attach(2);
+        $user->roles()->attach(2);
     }
 }
