@@ -16,29 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // roles
-    // abilities
-    //ability_role
-        //ability_id
-        //role_id
-    //users
-    //user_role
-        //user_id
-        //role_id
-    
-    // admin
-        //create_post 
-        //create_forum
-        //delete_user
-    // guest
-        // create_user
-        // create_post
-        // edit user
-    // employee
-        //delete_user
-        //create_post
-        // delete_post
     $users = User::all();
     Auth::loginUsingId(2);
     return view('welcome', ['users' => $users]);
 });
+
+Route::get('/user/create', function () {
+    return view('user_create');
+})->middleware('can:create_users')->name('user.create');

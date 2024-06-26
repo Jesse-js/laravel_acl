@@ -829,7 +829,7 @@
 <body class="antialiased">
     <h2>Laravel ACL</h2>
     @can('create_users')
-        <a href="">Create User</a>
+        <a href="{{ route('user.create') }}">Create User</a>
     @endcan
     @can('create_posts')
         <a href="">Create Post</a>
