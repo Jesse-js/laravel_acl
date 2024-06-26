@@ -48,4 +48,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function hasAbility(string $ability): bool
+    {
+        return $this->role()->whereHas('abilities', function ($query) use ($ability) {
+            $query->where('name', $ability);
+        })->exists();
+    }
+
 }

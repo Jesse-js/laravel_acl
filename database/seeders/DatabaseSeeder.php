@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
         (new RoleSeeder())->run();
+        (new AbilitySeeder())->run();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

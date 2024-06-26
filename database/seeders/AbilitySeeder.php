@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Ability;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class AbilitySeeder extends Seeder
@@ -14,14 +13,23 @@ class AbilitySeeder extends Seeder
     public function run(): void
     {
         $abilities = [
-            'create_posts',
-            'update_posts',
-            'delete_posts',
-            'create_users',
-            'update_users',
-            'delete_users',
+            ['name' => 'create_posts'],
+            ['name' => 'update_posts'],
+            ['name' => 'delete_posts'],
+            ['name' => 'create_users'],
+            ['name' => 'update_users'],
+            ['name' => 'delete_users'],
         ];
 
         Ability::insert($abilities);
+
+        $abilitiy = Ability::find(1);
+        $abilitiy->roles()->sync([1, 2, 3]);
+
+        $abilitiy = Ability::find(2);
+        $abilitiy->roles()->sync([1, 2]);
+
+        $abilitiy = Ability::find(3);
+        $abilitiy->roles()->sync([1, 3]);
     }
 }
