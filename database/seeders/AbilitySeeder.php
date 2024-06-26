@@ -18,6 +18,7 @@ class AbilitySeeder extends Seeder
             ['name' => 'update_posts'],
             ['name' => 'delete_posts'],
             ['name' => 'create_users'],
+            ['name' => 'store_users'], 
             ['name' => 'update_users'],
             ['name' => 'delete_users'],
         ];
@@ -25,7 +26,7 @@ class AbilitySeeder extends Seeder
         Ability::insert($abilities);
 
         $role = Role::find(1);
-        $role->abilities()->sync([1, 2, 3, 4, 5, 6]);
+        $role->abilities()->sync(Ability::all()->pluck('id'));
 
         $role = Role::find(2);
         $role->abilities()->sync([1, 2]);
